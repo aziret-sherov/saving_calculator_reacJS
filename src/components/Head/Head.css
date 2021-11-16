@@ -1,0 +1,14 @@
+.head {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 60px;
+}
+
+.linkText {
+    font-family: Rambla, serif;
+    font-size: 18px;
+    line-height: 22px;
+    color: #2F80ED;
+}

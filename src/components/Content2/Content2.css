@@ -1,0 +1,33 @@
+.box3 {
+padding-top: 20px;
+}
+.box3mainDiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid #CFCFCF;
+    border-radius: 4px;
+    justify-content: space-around;
+}
+.box3mainDiv1 {
+    color: #102C51;
+    padding-top: 30px;
+}
+.box3mainDiv2 {
+    font-weight: bold;
+    color: #2F80ED;
+    padding-top: 30px;
+}
+.box3mainDiv3 {
+    display: flex;
+    width: 100%;
+    background-color: #F4F8FA;
+    justify-content: center;
+}
+.box3mainDiv31 {
+    width: 300px;
+    font-size: 10px;
+    line-height: 15px;
+    color: #102C51;
+}

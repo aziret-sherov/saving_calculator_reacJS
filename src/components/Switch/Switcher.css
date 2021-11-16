@@ -1,0 +1,19 @@
+.box1Text {
+    width: 124px;
+    font-family: Rambla, serif;
+    font-size: 30px;
+    color: #102C51;
+}
+.checkBox {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.checkBoxP {
+    font-family: Rambla, serif;
+    font-size: 14px;
+    color: #102C51;
+}
+
+
+
