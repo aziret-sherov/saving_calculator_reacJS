@@ -1,14 +1,14 @@
 .head {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 400px;
-    height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 400px;
+  height: 60px;
 }
 
 .link {
-    font-family: Rambla, serif;
-    font-size: 18px;
-    line-height: 22px;
-    color: #2F80ED;
+  font-family: Rambla, serif;
+  font-size: 18px;
+  line-height: 22px;
+  color: #2f80ed;
 }

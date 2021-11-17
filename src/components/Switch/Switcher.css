@@ -1,19 +1,16 @@
 .title {
-    width: 124px;
-    font-family: Rambla, serif;
-    font-size: 30px;
-    color: #102C51;
+  width: 124px;
+  font-family: Rambla, serif;
+  font-size: 30px;
+  color: #102c51;
 }
 .checkBox {
-    display: flex;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 .checkBoxText {
-    font-family: Rambla, serif;
-    font-size: 14px;
-    color: #102C51;
+  font-family: Rambla, serif;
+  font-size: 14px;
+  color: #102c51;
 }
-
-
-
