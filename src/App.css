@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -8,6 +8,7 @@ body{
     align-items: center;
     align-content: center;
 }
+
 .container {
     width: 400px;
     padding: 10px 50px 50px 50px;
@@ -15,6 +16,7 @@ body{
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
 }
+
 
 .button {
     margin-top: 25px;
@@ -25,4 +27,15 @@ body{
     color: white;
     font-weight: bold;
     font-size: 20px;
+}
+
+@media (max-width: 767px) {
+    #root{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container {
+        width: 250px ;
+    }
 }

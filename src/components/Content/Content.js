@@ -1,24 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Content.css'
 import {faArrowLeft, faArrowRight,faDollarSign} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Input, InputAdornment} from "@mui/material";
 
-const Content = ({
-                     monthNames,
-                     radio,
-                     setAmountMonth,
-                     amountMonth,
-                     setTotal,
-                     total,
-                     month,
-                     setMonth,
-                     year,
-                     setYear,
-                     monthlyAmount,
-                     setMonthlyAmount
-                 }) => {
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+
+const Content = ({radio}) => {
+
+    const [totalAmount, setTotalAmount] = useState(0)
+    const [monthlyAmount, setMonthlyAmount] = useState(0)
+
+    const [countMonth, setCountMonth] = useState(1)
+
+    const [month, setMonth] = useState(new Date().getMonth());
+    const [year, setYear] = useState(new Date().getFullYear())
+
     const prevMonth = () => {
-        if (amountMonth <= 0) {
+        if (countMonth <= 1) {
 
         } else {
             if (month > 11) {
@@ -31,7 +31,7 @@ const Content = ({
             } else {
                 setMonth(month - 1)
             }
-            setAmountMonth(amountMonth - 1)
+            setCountMonth(countMonth - 1)
         }
     }
     const nextMonth = () => {
@@ -44,28 +44,63 @@ const Content = ({
         } else {
             setMonth(month + 1)
         }
-        setAmountMonth(amountMonth + 1)
+        setCountMonth(countMonth + 1)
+    }
+
+    const clickButton = () => {
+        if (radio === true) {
+            const a = parseInt(totalAmount)
+            const b = parseInt(countMonth)
+            setMonthlyAmount(Math.round(a / b));
+        } else {
+            const a = parseInt(monthlyAmount)
+            const b = parseInt(countMonth)
+            setTotalAmount(Math.round(a * b))
+        }
+    }
+
+    function handleInput(event) {
+        radio ? setTotalAmount(event.target.value) : setMonthlyAmount(event.target.value)
     }
 
     return (
         <>
-            <p className={"box2P"}>{radio ? `Total amount` : `Calculate by monthly saving`}</p>
-            <div className={"box2Input"}>
-
-                <FontAwesomeIcon color={"#828282"} icon={faDollarSign} />
-                <input
-                    className={"Input"}
-                    type="number"
-                    value={radio ? total : monthlyAmount}
-                    onChange={radio ? (number => setTotal(number)) : (number => setMonthlyAmount(number))}
+            <p className={"inputTitle"}>{radio ? `Total amount` : `Calculate by monthly saving`}</p>
+            <div className={"inputs"}>
+                <Input
+                    className={"firstInput"}
+                    type={"number"}
+                    onChange={handleInput}
+                    value={radio ? totalAmount : monthlyAmount}
+                    startAdornment={
+                        <InputAdornment position="start">
+                            <FontAwesomeIcon color={"#828282"} icon={faDollarSign} />
+                        </InputAdornment>
+                    }
                 />
             </div>
-            <p className={"box2P"}>{radio ? `Reach goal by` : `Save until`}</p>
-            <div className={"box2Input"}>
+            <p className={"inputTitle"}>{radio ? `Reach goal by` : `Save until`}</p>
+            <div className={"inputs"}>
                 <div onClick={prevMonth}><FontAwesomeIcon className={"Arrows"} color={"#828282"} icon={faArrowLeft} /></div>
-                <p className={"InputText"}>{`${monthNames[month]}, ${year}`}</p>
+                <p className={"textInInput"}>{`${monthNames[month]}, ${year}`}</p>
                 <div onClick={nextMonth}><FontAwesomeIcon className={"Arrows"} color={"#828282"} icon={faArrowRight} /></div>
             </div>
+            <div className={"mainDiv"}>
+                <p className={"leftText"}>
+                    {radio ? `Monthly amount` : `Total amount`}
+                </p>
+                <p className={"RightText"}>
+                    ${radio ? monthlyAmount : totalAmount}
+                </p>
+                <div className={"massageDiv"}>
+                    <p className={"massage"}>{
+                        radio
+                            ? `You are planning ${countMonth} monthly deposits to reach your $ ${totalAmount} goal by ${monthNames[month]} ${year}.`
+                            : `You are saving $ ${monthlyAmount} monthly to save $ ${totalAmount} by ${monthNames[month]} ${year}.`}
+                    </p>
+                </div>
+            </div>
+            <button className={"button"} onClick={clickButton}>Finish</button>
         </>
     );
 };

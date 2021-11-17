@@ -9,7 +9,7 @@ const Head = () => {
             <div>
                 <FontAwesomeIcon color={"#828282"} icon={faArrowLeft} />
             </div>
-            <a className={"linkText"} href={"http://localhost:3000/"}>
+            <a className={"link"} href={"http://localhost:3000/"}>
                 Let's plan your saving goal
             </a>
         </div>

@@ -1,4 +1,4 @@
-.box1Text {
+.title {
     width: 124px;
     font-family: Rambla, serif;
     font-size: 30px;
@@ -9,7 +9,7 @@
     align-items: center;
     width: 100%;
 }
-.checkBoxP {
+.checkBoxText {
     font-family: Rambla, serif;
     font-size: 14px;
     color: #102C51;
